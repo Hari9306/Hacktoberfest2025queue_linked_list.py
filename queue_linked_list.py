@@ -1,17 +1,17 @@
 class Node:
-    def __init__(self, data):
+    def _init_(self, data):
         self.data = data
         self.next = None
 
 class Queue:
-    def __init__(self):
+    def _init_(self):
         self.front = self.rear = None
 
     def enqueue(self, item):
         new_node = Node(item)
         if self.rear is None:
-            self.front = new_node
-            return  # ❌ Missing update for rear pointer
+            self.front = self.rear = new_node  # ✅ Fix: update both front & rear
+            return
         self.rear.next = new_node
         self.rear = new_node
 
@@ -27,5 +27,5 @@ class Queue:
 q = Queue()
 q.enqueue(10)
 q.enqueue(20)
-print(q.dequeue())  # Expected 10
-print(q.dequeue())  # Expected 20
+print(q.dequeue())
+print(q.dequeue())
