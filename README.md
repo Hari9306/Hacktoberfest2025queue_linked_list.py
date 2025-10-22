@@ -1,0 +1,1 @@
+# Hacktoberfest2025queue_linked_list.py
